@@ -9,6 +9,8 @@ import {
 
 const HERE = path.resolve(__dirname, '.')
 const CWD = process.cwd()
+const weburl="https://connect.example.org"
+const weburl2="https://connect.example.org/"
 
 jest.setTimeout(1000 * 60 * 2)
 
@@ -66,11 +68,11 @@ describe("connectPublish", () => {
 describe("loadArgs", () => {
   it("accepts valid URL and api-key", () => {
     process.env["INPUT_API-KEY"] = "bogus";
-    process.env["INPUT_URL"] = "https://connect.example.org";
+    process.env["INPUT_URL"] = weburl;
 
     const args = loadArgs();
 
-    expect(args.url).toBe("https://connect.example.org/");
+    expect(args.url).toBe(weburl2);
     expect(args.apiKey).toBe("bogus");
   });
 
@@ -80,7 +82,7 @@ describe("loadArgs", () => {
 
     const args = loadArgs();
 
-    expect(args.url).toBe("https://connect.example.org/");
+    expect(args.url).toBe(weburl2);
     expect(args.apiKey).toBe("gnarly");
   });
 
@@ -90,7 +92,7 @@ describe("loadArgs", () => {
 
     const args = loadArgs();
 
-    expect(args.url).toBe("https://connect.example.org/");
+    expect(args.url).toBe(weburl2);
     expect(args.apiKey).toBe("radical");
   });
 });
