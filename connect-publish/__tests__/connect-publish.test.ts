@@ -11,6 +11,8 @@ const HERE = path.resolve(__dirname, '.')
 const CWD = process.cwd()
 const weburl="https://connect.example.org"
 const weburl2="https://connect.example.org/"
+const webapi= "INPUT_API-KEY"
+const webinputurl = "INPUT_URL"
 
 jest.setTimeout(1000 * 60 * 2)
 
@@ -67,8 +69,8 @@ describe("connectPublish", () => {
 
 describe("loadArgs", () => {
   it("accepts valid URL and api-key", () => {
-    process.env["INPUT_API-KEY"] = "bogus";
-    process.env["INPUT_URL"] = weburl;
+    process.env[webapi] = "bogus";
+    process.env[webinputurl] = weburl;
 
     const args = loadArgs();
 
@@ -77,8 +79,8 @@ describe("loadArgs", () => {
   });
 
   it("accepts api-key as username in URL", () => {
-    process.env["INPUT_API-KEY"] = "bogus";
-    process.env["INPUT_URL"] = "https://gnarly@connect.example.org";
+    process.env[webapi] = "bogus";
+    process.env[webinputurl] = "https://gnarly@connect.example.org";
 
     const args = loadArgs();
 
@@ -87,8 +89,8 @@ describe("loadArgs", () => {
   });
 
   it("accepts api-key as password in URL", () => {
-    process.env["INPUT_API-KEY"] = "bogus";
-    process.env["INPUT_URL"] = "https://discarded:radical@connect.example.org";
+    process.env[webapi] = "bogus";
+    process.env[webinputurl] = "https://discarded:radical@connect.example.org";
 
     const args = loadArgs();
 
