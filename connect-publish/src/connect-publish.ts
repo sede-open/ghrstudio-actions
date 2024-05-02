@@ -4,7 +4,17 @@ import { URL } from 'url'
 import * as core from '@actions/core'
 import styles, { CSPair } from 'ansi-styles'
 
-import * as rsconnect from '@rstudio/rsconnect-ts'
+import { APIClient, Deployer , EnvironmentUpdater , ClientTaskPoller} from '@rstudio/rsconnect-ts';
+
+const rsconnect = {
+  APIClient,
+  Deployer,
+  EnvironmentUpdater,
+  ClientTaskPoller
+};
+
+// Now you can use rsconnect.APIClient and rsconnect.Deployer in your code
+
 
 function bold (txt: string, color?: CSPair): string {
   const c = (
