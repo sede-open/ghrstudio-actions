@@ -1,10 +1,20 @@
 import path from 'path'
 import { URL } from 'url'
-
-import * as core from '@actions/core'
+import {debug,info,setOutput,isDebug,setFailed,warning,error,getInput}  from '@actions/core'
 import styles, { CSPair } from 'ansi-styles'
+const core={
+  debug,
+  info,
+  setOutput,
+  isDebug,
+  setFailed,
+  warning,
+  error,
+  getInput
+}
 
-import { APIClient, Deployer , EnvironmentUpdater , ClientTaskPoller} from '@rstudio/rsconnect-ts'
+
+import { APIClient, Deployer , EnvironmentUpdater, ClientTaskPoller} from '@rstudio/rsconnect-ts'
 
 const rsconnect = {
   APIClient,
