@@ -11,7 +11,7 @@ const rsconnect = {
   Deployer,
   EnvironmentUpdater,
   ClientTaskPoller
-};
+}
 
 // Now you can use rsconnect.APIClient and rsconnect.Deployer in your code
 
