@@ -1,4 +1,5 @@
-import * as core from '@actions/core'
+import {setFailed} from '@actions/core'
+const core={setFailed}
 import { connectPublish, loadArgs } from './connect-publish'
 
 export function run (): void {
