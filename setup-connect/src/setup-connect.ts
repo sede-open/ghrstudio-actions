@@ -1,7 +1,8 @@
-import * as core from '@actions/core'
-import * as exec from '@actions/exec'
+import {info,error,setFailed,getInput} from '@actions/core'
+import {exec} from '@actions/exec'
 import styles from 'ansi-styles'
-
+const core={info,error,setFailed,getInput}
+const exec={exec}
 class ActionArgs {
   public pyRuntime: boolean = false
   public pyVersion: string = ''
