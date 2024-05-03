@@ -1,4 +1,5 @@
-import * as core from '@actions/core'
+import {setFailed} from '@actions/core'
+const core={setFailed}
 import { setupConnect, loadArgs } from './setup-connect'
 
 export function run (): void {
