@@ -2,4 +2,4 @@ flask
 flask-restx
 pandas
 numpy
-werkzeug <= 0.16.1
+Werkzeug>=2.3.8
