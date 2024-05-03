@@ -2848,7 +2848,8 @@ exports.debugLog = exports.debugEnabled = void 0;
 const util_1 = __importDefault(__nccwpck_require__(3837));
 const logName = 'rsconnect-ts';
 function debugMatchLogName(s) {
-    const re = new RegExp(`^${s.replace('*', '.*')}$`);
+    /* fixed the code --*const re = new RegExp(`^${s.replace('*', '.*')}$`); */
+    const re = new RegExp(`^${s.replace(/\*/g, '.*')}$`);
     return re.test(logName);
 }
 function getDebugEnabled() {
