@@ -18271,12 +18271,24 @@ module.exports = {};
     function getRawTag(value) {
       var isOwn = hasOwnProperty.call(value, symToStringTag),
           tag = value[symToStringTag];
-
+/*
       try {
         value[symToStringTag] = undefined;
         var unmasked = true;
       } catch (e) {}
+*/
+var unmasked = false;
 
+try {
+    if (['__proto__', 'constructor'].includes(symToStringTag)) {
+        throw new Error('Cannot assign to __proto__ or constructor');
+    }
+
+    value[symToStringTag] = undefined;
+    unmasked = true;
+} catch (e) {
+    console.error(e);
+}
       var result = nativeObjectToString.call(value);
       if (unmasked) {
         if (isOwn) {
