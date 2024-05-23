@@ -2848,8 +2848,7 @@ exports.debugLog = exports.debugEnabled = void 0;
 const util_1 = __importDefault(__nccwpck_require__(3837));
 const logName = 'rsconnect-ts';
 function debugMatchLogName(s) {
-    /* fixed the code --*const re = new RegExp(`^${s.replace('*', '.*')}$`); */
-    const re = new RegExp(`^${s.replace(/\*/g, '.*')}$`);
+    const re = new RegExp(`^${s.replace('*', '.*')}$`);
     return re.test(logName);
 }
 function getDebugEnabled() {
@@ -18271,24 +18270,12 @@ module.exports = {};
     function getRawTag(value) {
       var isOwn = hasOwnProperty.call(value, symToStringTag),
           tag = value[symToStringTag];
-/*
+
       try {
         value[symToStringTag] = undefined;
         var unmasked = true;
       } catch (e) {}
-*/
-var unmasked = false;
 
-try {
-    if (['__proto__', 'constructor'].includes(symToStringTag)) {
-        throw new Error('Cannot assign to __proto__ or constructor');
-    }
-
-    value[symToStringTag] = undefined;
-    unmasked = true;
-} catch (e) {
-    console.error(e);
-}
       var result = nativeObjectToString.call(value);
       if (unmasked) {
         if (isOwn) {
